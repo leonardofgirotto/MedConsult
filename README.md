@@ -1,7 +1,5 @@
 # MedConsult
 
-# Clínica
-
 Este projeto simula a criação de um sistema de gerenciamento para uma clínica médica.
 
 ## Estrutura do Projeto
