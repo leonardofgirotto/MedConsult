@@ -2,11 +2,11 @@ package Controller.Services;
 
 import java.util.List;
 
-import Controller.BD.PacienteBD;
+import Controller.DAO.PacienteDAO;
 import Model.Classes.Paciente;
 
 public class PacienteServices {
-    private PacienteBD pacienteBD = new PacienteBD();
+    private PacienteDAO pacienteBD = new PacienteDAO();
     
     public boolean cadastrar(Paciente paciente){
         return pacienteBD.Create(paciente);

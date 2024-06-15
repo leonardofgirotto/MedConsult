@@ -87,10 +87,10 @@ public class ConsultaModel implements ActionListener {
             Medico medico ;
             
 
-            paciente = Controller.BD.PacienteBD.RetrieveFilterId((int) this.agendamento.getjTablePacientes().getValueAt(this.agendamento.getjTablePacientes().getSelectedRow(), 0));
+            paciente = Controller.DAO.PacienteDAO.RetrieveFilterId((int) this.agendamento.getjTablePacientes().getValueAt(this.agendamento.getjTablePacientes().getSelectedRow(), 0));
             consulta.setPaciente(paciente);
                      
-            medico = Controller.BD.MedicoBD.RetrieveFilterId((int) this.agendamento.getjTableMedicos().getValueAt(this.agendamento.getjTableMedicos().getSelectedRow(), 0));
+            medico = Controller.DAO.MedicoDAO.RetrieveFilterId((int) this.agendamento.getjTableMedicos().getValueAt(this.agendamento.getjTableMedicos().getSelectedRow(), 0));
             consulta.setMedico(medico);
 
             consulta.setData(this.agendamento.getjDateChooserData().getDate());
