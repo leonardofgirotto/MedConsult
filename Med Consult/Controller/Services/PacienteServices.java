@@ -6,29 +6,25 @@ import Controller.DAO.PacienteDAO;
 import Model.Classes.Paciente;
 
 public class PacienteServices {
-    private PacienteDAO pacienteBD = new PacienteDAO();
+    private PacienteDAO pacienteDAO = new PacienteDAO();
     
     public boolean cadastrar(Paciente paciente){
-        return pacienteBD.Create(paciente);
+        return pacienteDAO.Create(paciente);
     }
     
      public List<Paciente> Buscar(){
-        return pacienteBD.Retrieve();
+        return pacienteDAO.Retrieve();
     }
     
     public boolean Atualizar(Paciente paciente){
-        return pacienteBD.Update(paciente);
+        return pacienteDAO.Update(paciente);
     }
     
-    public boolean Delete(int id){
-        return pacienteBD.Delete(id);
+    public boolean Delete(String nome){
+        return pacienteDAO.Delete(nome);
     }
     
     public List<Paciente> BuscarFiltrando (String nome){
-        return pacienteBD.RetrieveFilter(nome);
+        return pacienteDAO.RetrieveFilter(nome);
     }
-    
-    public Paciente BuscarFiltrandoId (int id){
-        return pacienteBD.RetrieveFilterId(id);
-    }    
 }

@@ -39,7 +39,6 @@ public class MedicoModel implements ActionListener{
         habilitarEdicao(false);
             for (Medico medicoAtual : medicoServices.Buscar()) {
             modeloTabela.addRow(new Object[]{
-                medicoAtual.getId(),
                 medicoAtual.getNome(),
                 medicoAtual.getCrm(),
                 medicoAtual.getCpf(),
@@ -66,7 +65,6 @@ public class MedicoModel implements ActionListener{
             for (Medico medicoAtual : listaMedicos) {
                
             modeloTabela.addRow(new Object[]{
-                medicoAtual.getId(),
                 medicoAtual.getNome(),
                 medicoAtual.getCrm(),
                 medicoAtual.getCpf(),
@@ -95,7 +93,6 @@ public class MedicoModel implements ActionListener{
             }
             
             Medico medico = new Medico();
-            medico.setId(this.medico.getId());
             medico.setNome(this.cadastroMedico.getTxtNome().getText());
             medico.setCrm(this.cadastroMedico.getjFTcrm().getText());
             medico.setCpf(this.cadastroMedico.getjFTcpf().getText());
@@ -114,7 +111,6 @@ public class MedicoModel implements ActionListener{
             habilitarEdicao(false);
                 for (Medico medicoAtual : medicoServices.Buscar()) {
                 modeloTabela.addRow(new Object[]{
-                    medicoAtual.getId(),
                     medicoAtual.getNome(),
                     medicoAtual.getCrm(),
                     medicoAtual.getCpf(),
@@ -147,12 +143,11 @@ public class MedicoModel implements ActionListener{
             
         } else if (e.getSource() == this.cadastroMedico.getBtnExcluir()){
             DefaultTableModel modelo = (DefaultTableModel) this.cadastroMedico.getjTableMedicos().getModel();
-            medicoServices.Delete((int) this.cadastroMedico.getjTableMedicos().getValueAt((int) this.cadastroMedico.getjTableMedicos().getSelectedRow(), 0));
+            medicoServices.Delete((String) this.cadastroMedico.getjTableMedicos().getValueAt((int) this.cadastroMedico.getjTableMedicos().getSelectedRow(), 0));
             modelo.setNumRows(0);
             
             for (Medico medicoAtual : medicoServices.Buscar()) {
             modelo.addRow(new Object[]{
-                medicoAtual.getId(),
                 medicoAtual.getNome(),
                 medicoAtual.getCrm(),
                 medicoAtual.getCpf(),

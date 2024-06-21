@@ -36,7 +36,6 @@ public class PacienteModel implements ActionListener{
         modeloTabela.setNumRows(0);
             for (Paciente pacienteAtual : pacienteServices.Buscar()) {
             modeloTabela.addRow(new Object[]{
-                pacienteAtual.getId(),
                 pacienteAtual.getNome(), 
                 pacienteAtual.getCpf(), 
                 pacienteAtual.getRg(), 
@@ -61,7 +60,6 @@ public class PacienteModel implements ActionListener{
             for (Paciente pacienteAtual : listaPacientes) {
                
             modeloTabela.addRow(new Object[]{
-                pacienteAtual.getId(),
                 pacienteAtual.getNome(),
                 pacienteAtual.getCpf(),
                 pacienteAtual.getRg(),
@@ -87,7 +85,6 @@ public class PacienteModel implements ActionListener{
                 sexo = "MASCULINO";
             }
             Paciente paciente = new Paciente();
-            paciente.setId(this.paciente.getId());
             paciente.setNome(this.cadastroPaciente.getTxtNome().getText());
             paciente.setCpf(this.cadastroPaciente.getjFTcpf().getText());
             paciente.setRg(this.cadastroPaciente.getjFTrg().getText());
@@ -102,7 +99,6 @@ public class PacienteModel implements ActionListener{
             modeloTabela.setNumRows(0);
             for (Paciente pacienteAtual : pacienteServices.Buscar()) {
             modeloTabela.addRow(new Object[]{
-                pacienteAtual.getId(),
                 pacienteAtual.getNome(),
                 pacienteAtual.getCpf(), 
                 pacienteAtual.getRg(), 
@@ -127,15 +123,13 @@ public class PacienteModel implements ActionListener{
             }
                    
         } else if (e.getSource() == this.cadastroPaciente.getBtnExcluir()) {
-            DefaultTableModel modelo = (DefaultTableModel) this.cadastroPaciente.getjTablePacientes().getModel();
-            
-            int objeto = (int) this.cadastroPaciente.getjTablePacientes().getValueAt((int) this.cadastroPaciente.getjTablePacientes().getSelectedRow(), 0);
+            DefaultTableModel modelo = (DefaultTableModel) this.cadastroPaciente.getjTablePacientes().getModel();       
+            String objeto = (String) this.cadastroPaciente.getjTablePacientes().getValueAt((int) this.cadastroPaciente.getjTablePacientes().getSelectedRow(), 0);
             pacienteServices.Delete(objeto);
             modelo.setNumRows(0);
             
                 for (Paciente pacienteAtual : pacienteServices.Buscar()) {
                 modelo.addRow(new Object[]{
-                    pacienteAtual.getId(),
                     pacienteAtual.getNome(), 
                     pacienteAtual.getCpf(), 
                     pacienteAtual.getRg(), 

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: med_consult
 -- ------------------------------------------------------
--- Server version	8.0.34
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -39,6 +39,7 @@ CREATE TABLE `paciente` (
 
 LOCK TABLES `paciente` WRITE;
 /*!40000 ALTER TABLE `paciente` DISABLE KEYS */;
+INSERT INTO `paciente` VALUES ('gabriela','453.465.543-65','4.564.565','45645654','(46) 5464-5645','(45) 64565-4645','FEMININO');
 /*!40000 ALTER TABLE `paciente` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-14 21:59:05
+-- Dump completed on 2024-06-21 16:45:50

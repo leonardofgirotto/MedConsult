@@ -43,16 +43,13 @@ public class ConsultaModel implements ActionListener {
         this.agendamento.getBtnBuscarPaciente().addActionListener(this);
         this.agendamento.getBtnBuscarMedico().addActionListener(this);
         this.agendamento.getBtnSair().addActionListener(this);
-        this.agendamento.getTxtMedicoId().addActionListener(this);
-        this.agendamento.getTxtPacienteId().addActionListener(this);
 
         habilitarEdicao(false);
         
         DefaultTableModel modeloTabela = (DefaultTableModel) cadastroPaciente.getjTablePacientes().getModel();
             modeloTabela.setNumRows(0);
             for (Paciente pacienteAtual : pacienteServices.Buscar()) {
-            modeloTabela.addRow(new Object[]{pacienteAtual.getId(),
-                    pacienteAtual.getNome(),
+            modeloTabela.addRow(new Object[]{pacienteAtual.getNome(),
                     pacienteAtual.getCpf(),
                     pacienteAtual.getRg()});
         }
@@ -62,9 +59,9 @@ public class ConsultaModel implements ActionListener {
 
             habilitarEdicao(false);
                 for (Medico medicoAtual : medicoServices.Buscar()) {
-                modeloTabela.addRow(new Object[]{medicoAtual.getId(),
+                modeloTabela.addRow(new Object[]{
                     medicoAtual.getNome(),
-                    medicoAtual.getCrm(),
+                    medicoAtual.getEspecialidade(),
                     medicoAtual.getCpf()});
                 }        
     }
@@ -87,10 +84,10 @@ public class ConsultaModel implements ActionListener {
             Medico medico ;
             
 
-            paciente = Controller.DAO.PacienteDAO.RetrieveFilterId((int) this.agendamento.getjTablePacientes().getValueAt(this.agendamento.getjTablePacientes().getSelectedRow(), 0));
+            paciente = Controller.DAO.PacienteDAO.RetrieveFilterId((String) this.agendamento.getjTablePacientes().getValueAt(this.agendamento.getjTablePacientes().getSelectedRow(), 0));
             consulta.setPaciente(paciente);
                      
-            medico = Controller.DAO.MedicoDAO.RetrieveFilterId((int) this.agendamento.getjTableMedicos().getValueAt(this.agendamento.getjTableMedicos().getSelectedRow(), 0));
+            medico = Controller.DAO.MedicoDAO.RetrieveFilterId((String) this.agendamento.getjTableMedicos().getValueAt(this.agendamento.getjTableMedicos().getSelectedRow(), 0));
             consulta.setMedico(medico);
 
             consulta.setData(this.agendamento.getjDateChooserData().getDate());
@@ -120,7 +117,7 @@ public class ConsultaModel implements ActionListener {
 
             listaPacientes = pacienteServices.BuscarFiltrando(this.agendamento.getTxtPaciente().getText());
             for (Paciente pacienteAtual : listaPacientes) {
-                modeloTabela.addRow(new Object[]{pacienteAtual.getId(),
+                modeloTabela.addRow(new Object[]{
                     pacienteAtual.getNome(),
                     pacienteAtual.getCpf(),
                     pacienteAtual.getRg()});
@@ -133,9 +130,9 @@ public class ConsultaModel implements ActionListener {
 
             listaMedicos = medicoServices.BuscarFiltrando(this.agendamento.getTxtMedico().getText());
             for (Medico medicoAtual : listaMedicos) {
-                modeloTabela.addRow(new Object[]{medicoAtual.getId(),
+                modeloTabela.addRow(new Object[]{
                     medicoAtual.getNome(),
-                    medicoAtual.getCrm(),
+                    medicoAtual.getEspecialidade(),
                     medicoAtual.getCpf()});
             }
         } else if (e.getSource() == this.agendamento.getBtnSair()) {
@@ -153,8 +150,6 @@ public class ConsultaModel implements ActionListener {
             this.agendamento.getBtnCancelar().setEnabled(true);
             this.agendamento.getBtnBuscarPaciente().setEnabled(true);
             this.agendamento.getBtnBuscarMedico().setEnabled(true);
-            this.agendamento.getTxtMedicoId().setEnabled(false);
-            this.agendamento.getTxtPacienteId().setEnabled(false);
             this.agendamento.getBtnSair().setEnabled(false);
             desLigaComponentesForm(true);
             desligarID(false);
@@ -164,8 +159,6 @@ public class ConsultaModel implements ActionListener {
             this.agendamento.getBtnCancelar().setEnabled(false);
             this.agendamento.getBtnBuscarPaciente().setEnabled(false);
             this.agendamento.getBtnBuscarMedico().setEnabled(false);
-            this.agendamento.getTxtMedicoId().setEnabled(false);
-            this.agendamento.getTxtPacienteId().setEnabled(false);
             this.agendamento.getBtnSair().setEnabled(true);
             desLigaComponentesForm(false);
             desligarID(false);

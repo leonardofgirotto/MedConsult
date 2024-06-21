@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Model.Classes.Medico;
 import Model.Classes.Paciente;
 
 public class PacienteDAO {
@@ -49,7 +48,6 @@ public class PacienteDAO {
 
             while (rs.next()) {
                 Paciente paciente = new Paciente();
-                paciente.setId(rs.getInt("id"));
                 paciente.setNome(rs.getString("nome"));
                 paciente.setCpf(rs.getString("cpf"));
                 paciente.setRg(rs.getString("rg"));
@@ -95,15 +93,15 @@ public class PacienteDAO {
         return estadoDaOperacao;
     }
 
-    public static boolean Delete(int id) {
+    public static boolean Delete(String nome) {
         boolean estadoDaOperacao = true;
         PreparedStatement stmt = null;
         Connection con = Controller.DAO.ConnectionFactory.getConnection();
-        String sqlAExecutar = "DELETE FROM paciente WHERE id = ?";
+        String sqlAExecutar = "DELETE FROM paciente WHERE nome = ?";
 
         try {
             stmt = con.prepareStatement(sqlAExecutar);
-            stmt.setInt(1, id);
+            stmt.setString(1, nome);
             stmt.executeLargeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -125,7 +123,6 @@ public class PacienteDAO {
 
             while (rs.next()) {
                 Paciente paciente = new Paciente();
-                paciente.setId(rs.getInt("id"));
                 paciente.setNome(rs.getString("nome"));
                 paciente.setCpf(rs.getString("cpf"));
                 paciente.setRg(rs.getString("rg"));
@@ -143,20 +140,19 @@ public class PacienteDAO {
         }
     }
 
-    public static Paciente RetrieveFilterId(int id) {
+    public static Paciente RetrieveFilterId(String nome) {
         Connection con = ConnectionFactory.getConnection();
-        String sqlAExecutar = "SELECT * FROM PACIENTE WHERE id = ?";
+        String sqlAExecutar = "SELECT * FROM PACIENTE WHERE nome = ?";
         ResultSet rs = null;
         PreparedStatement stmt = null;
         Paciente paciente = new Paciente();
         try {
             stmt = con.prepareStatement(sqlAExecutar);
-            stmt.setInt(1, id);
+            stmt.setString(1, nome);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
 
-                paciente.setId(rs.getInt("id"));
                 paciente.setNome(rs.getString("nome"));
                 paciente.setCpf(rs.getString("cpf"));
                 paciente.setRg(rs.getString("rg"));

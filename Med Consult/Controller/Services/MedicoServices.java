@@ -6,29 +6,25 @@ import Controller.DAO.MedicoDAO;
 import Model.Classes.Medico;
 
 public class MedicoServices {
-    private MedicoDAO medicoBD = new MedicoDAO();
+    private MedicoDAO medicoDAO = new MedicoDAO();
     
     public boolean cadastrar(Medico medico){
-        return medicoBD.Create(medico);
+        return medicoDAO.Create(medico);
     }
     
     public List<Medico> Buscar(){
-        return medicoBD.Retrieve();
+        return medicoDAO.Retrieve();
     }
     
     public boolean Atualizar(Medico medico){
-        return medicoBD.Update(medico);
+        return medicoDAO.Update(medico);
     }
     
-    public boolean Delete(int id){
-        return medicoBD.Delete(id);
+    public boolean Delete(String nome){
+        return medicoDAO.Delete(nome);
     }
     
     public List<Medico> BuscarFiltrando (String nome){
-        return medicoBD.RetrieveFilter(nome);
-    }
-    
-    public Medico BuscarFiltrandoId (int id){
-        return medicoBD.RetrieveFilterId(id);
+        return medicoDAO.RetrieveFilter(nome);
     }
 }

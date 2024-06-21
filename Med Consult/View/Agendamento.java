@@ -44,8 +44,6 @@ public class Agendamento extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanelId = new javax.swing.JPanel();
-        txtPacienteId = new javax.swing.JTextField();
-        txtMedicoId = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -145,7 +143,7 @@ public class Agendamento extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "CRM", "CPF"
+                "Nome", "Especialidade", "CPF"
             }
         ));
         jTableMedicos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -168,7 +166,7 @@ public class Agendamento extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "CPF", "RG"
+                "Nome", "CPF", "RG"
             }
         ));
         jTablePacientes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -198,16 +196,6 @@ public class Agendamento extends javax.swing.JFrame {
 
         jPanelId.setLayout(null);
 
-        txtPacienteId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPacienteIdActionPerformed(evt);
-            }
-        });
-        jPanelId.add(txtPacienteId);
-        txtPacienteId.setBounds(0, 0, 40, 30);
-        jPanelId.add(txtMedicoId);
-        txtMedicoId.setBounds(0, 40, 40, 30);
-
         jPanelAgendamento.add(jPanelId);
         jPanelId.setBounds(340, 10, 40, 70);
 
@@ -228,8 +216,7 @@ public class Agendamento extends javax.swing.JFrame {
 
     private void jTableMedicosMouseClicked(java.awt.event.MouseEvent evt) {
          if (jTableMedicos.getSelectedRow() != -1){
-             txtMedicoId.setText(jTableMedicos.getValueAt(jTableMedicos.getSelectedRow(), 0).toString());
-             //no controller, instancia o paciente
+             txtMedico.setText(jTableMedicos.getValueAt(jTableMedicos.getSelectedRow(), 0).toString());
          }
     }
     private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,7 +224,7 @@ public class Agendamento extends javax.swing.JFrame {
     }
     private void jTablePacientesMouseClicked(java.awt.event.MouseEvent evt) {
         if (jTablePacientes.getSelectedRow() != -1){
-            txtPacienteId.setText(jTablePacientes.getValueAt(jTablePacientes.getSelectedRow(), 0).toString());
+            txtPaciente.setText(jTablePacientes.getValueAt(jTablePacientes.getSelectedRow(), 0).toString());
         }
     }
 
@@ -301,14 +288,6 @@ public class Agendamento extends javax.swing.JFrame {
         return btnBuscarPaciente;
     }
 
-    public JTextField getTxtMedicoId() {
-        return txtMedicoId;
-    }
-
-    public JTextField getTxtPacienteId() {
-        return txtPacienteId;
-    }
-
     public JPanel getjPanelId() {
         return jPanelId;
     }
@@ -365,7 +344,5 @@ public class Agendamento extends javax.swing.JFrame {
     private javax.swing.JTable jTablePacientes;
     private javax.swing.JTextArea jTextAreaMotivo;
     private javax.swing.JTextField txtMedico;
-    private javax.swing.JTextField txtMedicoId;
     private javax.swing.JTextField txtPaciente;
-    private javax.swing.JTextField txtPacienteId;
 }

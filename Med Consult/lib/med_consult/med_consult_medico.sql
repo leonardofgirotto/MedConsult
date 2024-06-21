@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: med_consult
 -- ------------------------------------------------------
--- Server version	8.0.34
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -41,7 +41,7 @@ CREATE TABLE `medico` (
 
 LOCK TABLES `medico` WRITE;
 /*!40000 ALTER TABLE `medico` DISABLE KEYS */;
-INSERT INTO `medico` VALUES ('matheus','12321313-2','123.123.123-12','1.231.231','Cardiologia','(12) 3123-1232','(12) 31231-2312','13212312','FEMININO');
+INSERT INTO `medico` VALUES ('matheus','12321313-2','123.123.123-12','1.231.231','Cardiologia','(12) 3123-1232','(12) 31231-2312','13212312','FEMININO'),('leonardo','12313213-1','123.123.123-12','1.231.231','Radiologia','(12) 3123-2131','(12) 31231-2313','123123123123123','MASCULINO');
 /*!40000 ALTER TABLE `medico` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-14 21:59:05
+-- Dump completed on 2024-06-21 16:45:50

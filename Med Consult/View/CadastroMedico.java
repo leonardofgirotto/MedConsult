@@ -194,7 +194,7 @@ public class CadastroMedico extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "CRM", "CPF", "RG", "Especialidade", "Telefone", "Celular", "Email", "Sexo"
+                "Nome", "CRM", "CPF", "RG", "Especialidade", "Telefone", "Celular", "Email", "Sexo"
             }
         ));
         jTableMedicos.addMouseListener(new java.awt.event.MouseAdapter() {

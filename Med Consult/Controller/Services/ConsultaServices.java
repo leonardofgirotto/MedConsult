@@ -4,12 +4,11 @@ import java.util.List;
 
 import Controller.DAO.ConsultaDAO;
 import Model.Classes.Consulta;
-import Model.Classes.Paciente;
 
 public class ConsultaServices {
-    private ConsultaDAO consultaBD = new ConsultaDAO();
+    private ConsultaDAO consultaDAO = new ConsultaDAO();
     
     public boolean Agendar(Consulta consulta){
-        return consultaBD.Create(consulta);
+        return consultaDAO.Create(consulta);
     }
 }

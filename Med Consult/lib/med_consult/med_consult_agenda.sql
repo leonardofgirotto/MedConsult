@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: med_consult
 -- ------------------------------------------------------
--- Server version	8.0.34
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,8 +23,8 @@ DROP TABLE IF EXISTS `agenda`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `agenda` (
-  `idPaciente` varchar(45) NOT NULL,
-  `idMedico` varchar(45) NOT NULL,
+  `nomePaciente` varchar(45) DEFAULT NULL,
+  `nomeMedico` varchar(45) DEFAULT NULL,
   `data` date NOT NULL,
   `horario` varchar(45) NOT NULL,
   `motivo` varchar(45) NOT NULL
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-14 21:59:05
+-- Dump completed on 2024-06-21 16:45:50

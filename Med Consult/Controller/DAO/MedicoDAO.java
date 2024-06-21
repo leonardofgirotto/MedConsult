@@ -54,7 +54,6 @@ public class MedicoDAO {
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Medico medico = new Medico();
-                medico.setId(rs.getInt("id"));
                 medico.setNome(rs.getString("nome"));
                 medico.setCrm(rs.getString("crm"));
                 medico.setCpf(rs.getString("cpf"));
@@ -89,8 +88,7 @@ public class MedicoDAO {
                 + " telefone   = ?, "
                 + " celular    = ? "
                 + " email    = ? "
-                + " sexo    = ? "
-                + " WHERE id = ?";
+                + " sexo    = ? ";
         try {
             stmt = con.prepareStatement(sqlAExecutar);
             stmt.setString(1, medico.getNome());
@@ -102,7 +100,6 @@ public class MedicoDAO {
             stmt.setString(7, medico.getCelular());
             stmt.setString(8, medico.getEmail());
             stmt.setString(9, medico.getSexo());
-            stmt.setInt(10, medico.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -112,15 +109,15 @@ public class MedicoDAO {
         return estadoDaOperacao;
     }
 
-    public static boolean Delete(int id) {
+    public static boolean Delete(String nome) {
         boolean estadoDaOperacao = true;
 
         Connection con = Controller.DAO.ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        String sqlAExecutar = "DELETE FROM medico WHERE id = ? ";
+        String sqlAExecutar = "DELETE FROM medico WHERE nome = ? ";
         try {
             stmt = con.prepareStatement(sqlAExecutar);
-            stmt.setInt(1, id);
+            stmt.setString(1, nome);
             stmt.execute();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -143,7 +140,6 @@ public class MedicoDAO {
 
             while (rs.next()) {
                 Medico medico = new Medico();
-                medico.setId(rs.getInt("id"));
                 medico.setNome(rs.getString("nome"));
                 medico.setCrm(rs.getString("crm"));
                 medico.setCpf(rs.getString("cpf"));
@@ -163,20 +159,18 @@ public class MedicoDAO {
         }
     }
     
-    public static Medico RetrieveFilterId(int id) {
+    public static Medico RetrieveFilterId(String nome) {
         Connection con = ConnectionFactory.getConnection();
-        String sqlAExecutar = "SELECT * FROM MEDICO WHERE id = ?";
+        String sqlAExecutar = "SELECT * FROM MEDICO WHERE nome = ?";
         ResultSet rs = null;
         PreparedStatement stmt = null;
                         Medico medico = new Medico();
         try {
             stmt = con.prepareStatement(sqlAExecutar);
-            stmt.setInt(1,id);
+            stmt.setString(1, nome);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-
-                medico.setId(rs.getInt("id"));
                 medico.setNome(rs.getString("nome"));
                 medico.setCrm(rs.getString("crm"));
                 medico.setCpf(rs.getString("cpf"));

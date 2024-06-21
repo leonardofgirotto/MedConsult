@@ -124,7 +124,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "CPF", "RG", "Telefone", "Celular", "Email", "Sexo"
+                "Nome", "CPF", "RG", "Telefone", "Celular", "Email", "Sexo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
