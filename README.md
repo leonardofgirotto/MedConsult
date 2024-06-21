@@ -38,7 +38,7 @@ Este projeto simula a criação de um sistema de gerenciamento para uma clínica
     
     - `mysql-connector-java-8.0.12.jar`: Biblioteca para conexão com banco de dados MySQL.
       
-    - 'med_consult': apresenta as tabelas do MySQL
+    - `med_consult`: apresenta as tabelas do MySQL
 
 - `imagens`: O diretório `imagens` contém os recursos gráficos utilizados na interface do usuário. Alguns dos principais arquivos neste diretório são:
 
